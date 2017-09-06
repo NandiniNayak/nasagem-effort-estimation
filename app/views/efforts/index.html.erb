@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Efforts</h1>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th>Course Name</th>
+      <th>Lead number</th>
+      <th>Lead cost</th>
+      <th>Ta number</th>
+      <th>Ta cost</th>
+      <th>Hours</th>
+      <th>Accomodation</th>
+      <th>Food</th>
+      <th>Travel medium</th>
+      <th>Travel cost</th>
+      <th>Equipment</th>
+      <th>Catering</th>
+      <th>Catering cost</th>
+      <th>Attendees count</th>
+      <th>Shipping cost</th>
+      <th>Misc</th>
+      <th>Course prep</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @efforts.each do |effort| %>
+      <tr>
+        <td><%= effort.course_name %></td>
+        <td><%= effort.lead_number %></td>
+        <td><%= effort.lead_cost %></td>
+        <td><%= effort.ta_number %></td>
+        <td><%= effort.ta_cost %></td>
+        <td><%= effort.hours %></td>
+        <td><%= effort.accomodation %></td>
+        <td><%= effort.food %></td>
+        <td><%= effort.travel_medium %></td>
+        <td><%= effort.travel_cost %></td>
+        <td><%= effort.equipment %></td>
+        <td><%= effort.catering %></td>
+        <td><%= effort.catering_cost %></td>
+        <td><%= effort.attendees_count %></td>
+        <td><%= effort.shipping_cost %></td>
+        <td><%= effort.misc %></td>
+        <td><%= effort.course_prep %></td>
+        <td><%= link_to 'Show', effort %></td>
+        <td><%= link_to 'Edit', edit_effort_path(effort) %></td>
+        <td><%= link_to 'Destroy', effort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Effort', new_effort_path %>

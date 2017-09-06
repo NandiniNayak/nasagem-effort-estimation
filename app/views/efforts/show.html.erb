@@ -1,0 +1,48 @@
+
+<br>
+<br>
+<div class = "jumbotron">
+    
+  <div class = "total_cost">
+     Total Cost: $
+    <%= @effort.total_cost %>
+  </div>
+  
+  <p>
+    <strong>Trainers Cost: $</strong>
+    <%= @effort.trainer_cost %>
+  </p>
+  
+  <p>
+    <strong>Equipment Cost: $</strong>
+    <%= @effort.equipment_cost %>
+  </p>
+  
+  <p>
+    <strong>Course Development Cost: $</strong>
+    <%= @effort.courseDev_cost %>
+  </p>
+  
+  <p>
+    <strong>Travel Cost: $</strong>
+    <%= @effort.trav_cost %>
+  </p>
+  
+  <p>
+    <strong>Accomodation Cost: $</strong>
+    <%= @effort.stay_cost %>
+  </p>
+  
+  <p>
+    <strong>Catering Cost: $</strong>
+    <%= @effort.cater_cost %>
+  </p>
+  
+  <p>
+    <strong>Actual cost: $</strong>
+    <%= @effort.actual_cost %>
+  </p>
+  
+  <%= link_to 'Edit', edit_effort_path(@effort), class: "btn btn-primary" %> 
+  <%= link_to 'Back', efforts_path , class: "btn btn-info" %>
+</div>

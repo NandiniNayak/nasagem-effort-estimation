@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117022338) do
+ActiveRecord::Schema.define(version: 20170906035655) do
+
+  create_table "efforts", force: :cascade do |t|
+    t.integer  "lead_number"
+    t.integer  "lead_cost"
+    t.integer  "ta_number"
+    t.integer  "ta_cost"
+    t.integer  "hours"
+    t.integer  "accomodation"
+    t.integer  "food"
+    t.string   "travel_medium"
+    t.integer  "travel_cost"
+    t.integer  "equipment"
+    t.string   "catering"
+    t.integer  "catering_cost"
+    t.integer  "attendees_count"
+    t.integer  "shipping_cost"
+    t.integer  "misc"
+    t.string   "course_prep"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "course_name"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

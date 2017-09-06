@@ -1,0 +1,39 @@
+<%= simple_form_for(@effort) do |f| %>
+  <%= f.error_notification %>
+  
+  <div class="form-inputs">
+    <%= f.input :course_name, placeholder: "Enter the name of the course" %>
+    <%= f.input :lead_number, placeholder: "How many lead trainers do we need" %>
+    <%= f.input :lead_cost, placeholder: "Enter lead trainers per hour cost" %>
+    <%= f.input :ta_number, placeholder: "How many TA's do we need" %>
+    <%= f.input :ta_cost, placeholder: "Enter TA's per hour cost" %>
+    <%= f.input :hours, placeholder: "Enter total number of hours for the program" %>
+    <%= f.input :equipment, placeholder: "Equipment cost" , input_html: {value: f.object.equipment || 0}  %>
+    <%= f.input :shipping_cost, placeholder: "Enter shipping cost" , input_html: {value: f.object.shipping_cost || 0}  %>
+    <%= f.input :catering, collection: ["NA","Lunch","Dinner","Refreshment"] %>
+    <%= f.input :catering_cost , placeholder: "Approximate cost for catering" ,  input_html: {value: f.object.catering_cost || 0}  %>
+    <%= f.input :attendees_count, placeholder: "Approximate number of people for the catering to be organised, enter 0 if not applicable" %>
+    <%= f.input :misc, placeholder: "Input additional cost if any" , input_html: {value: f.object.catering_cost || 0}  %>
+    <%= f.input :course_prep , collection: ["basic", "medium","complex"] %>
+    
+    <h1> Enter cost <strong class = "effort-form">per trainer</strong> for the following fields only if travel involved</h1>
+    
+    <%= f.input :accomodation, placeholder:"Enter approximate per trainer accomodation cost" , input_html: {value: f.object.accomodation || 0}  %>
+    <%= f.input :food, placeholder: "Enter approximate per trainer food cost for entire period of training" , input_html: {value: f.object.food || 0} %>
+    <%= f.input :travel_medium, collection: ["Flight", "Taxi","Driving","PublicTransport","NA"] %>
+    <!--optional cost to frequent travel destinations if medium is flight-->
+    <!--Also how to set the default field to 0 if not applicable-->
+     <!--input_html: {:value => 0 }  -> overrides the value when edited-->
+     <!--input_html: {value: f.object.travel_cost || 0 }-->
+     <!--retains the value when edited, but sets the initial value to 0-->
+     
+     
+    <%= f.input :travel_cost, placeholder: "Approximate cost for the travel based on the medium selected per trainer" , input_html: {value: f.object.travel_cost || 0}  %>
+  </div>
+
+  <!--change creat effort to submit, also how to pass the information stored onto a word doc to generate contract-->
+  <div class="form-actions">
+    <%= f.button :submit ,  "Estimate Cost" %>
+  </div>
+  
+<% end %>

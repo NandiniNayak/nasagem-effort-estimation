@@ -1,0 +1,2 @@
+json.extract! effort, :id, :lead_number, :lead_cost, :ta_number, :ta_cost, :hours, :accomodation, :food, :travel_medium, :travel_cost, :equipment, :catering, :catering_cost, :attendees_count, :shipping_cost, :misc, :course_prep, :created_at, :updated_at
+json.url effort_url(effort, format: :json)

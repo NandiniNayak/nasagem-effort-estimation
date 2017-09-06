@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lead_number: 1
+  lead_cost: 1
+  ta_number: 1
+  ta_cost: 1
+  hours: 1
+  accomodation: 1
+  food: 1
+  travel_medium: MyString
+  travel_cost: 1
+  equipment: 1
+  catering: MyString
+  catering_cost: 1
+  attendees_count: 1
+  shipping_cost: 1
+  misc: 1
+  course_prep: MyString
+
+two:
+  lead_number: 1
+  lead_cost: 1
+  ta_number: 1
+  ta_cost: 1
+  hours: 1
+  accomodation: 1
+  food: 1
+  travel_medium: MyString
+  travel_cost: 1
+  equipment: 1
+  catering: MyString
+  catering_cost: 1
+  attendees_count: 1
+  shipping_cost: 1
+  misc: 1
+  course_prep: MyString

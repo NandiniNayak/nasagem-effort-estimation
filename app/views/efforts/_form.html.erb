@@ -18,7 +18,8 @@
     
     <%= f.input :shipping_cost, label: "Shipping cost if any" , input_html: {value: f.object.shipping_cost || 0}  %>
     
-    <%= f.input :catering, collection: ["NA","Lunch","Dinner","Refreshment"] %>
+   <%= f.input :catering, collection: ["Morning Tea","Lunch","Afternoon Tea","Dinner","Refreshments","Full day","Evening"] %>
+    
     
     <%= f.input :catering_cost , label: "Catering cost per person", input_html: {value: f.object.catering_cost || 0}  %>
     
@@ -26,13 +27,15 @@
     
     <%= f.input :misc, label: "Input additional cost if any" , input_html: {value: f.object.misc || 0}  %>
     
-    <%= f.input :course_prep , label: "Choose course complexity from the dropdown, includes marketing effort" , collection: ["basic", "medium","complex"] , default: "basic" %>
+    <%= f.input :course_prep , label: "Choose course complexity from the dropdown, include marketing effort and full timer's effort" , collection: ["basic", "medium","complex"] , default: "basic" %>
     
     <h1> Enter cost <strong class = "effort-form">per trainer</strong> for the following fields only if travel involved</h1>
     
-    <%= f.input :accomodation, label:"Per trainer approximate accomodation cost for the whole period" , input_html: {value: f.object.accomodation || 0}  %>
+    <%= f.input :days, label:"Total number of days from checkin - checkout" , input_html: {value: f.object.days || 0}  %>
     
-    <%= f.input :food, label: "Per trainer approximate food cost for the whole period" , input_html: {value: f.object.food || 0} %>
+    <%= f.input :accomodation, label:"Approximate accomodation cost per night" , input_html: {value: f.object.accomodation || 0}  %>
+    
+    <%= f.input :food, label: "Approximate food expense per day per trainer " , input_html: {value: f.object.food || 0} %>
     
     <%= f.input :travel_medium, collection: ["Flight", "Taxi","Driving","PublicTransport","NA"] %>
     <!--optional cost to frequent travel destinations if medium is flight-->

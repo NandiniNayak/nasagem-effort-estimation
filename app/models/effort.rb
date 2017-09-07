@@ -1,19 +1,19 @@
 class Effort < ApplicationRecord
     # estimate the individual costs, total cost and actual cost
     def trainer_cost
-        (lead_number * lead_cost * hours) + (ta_number * ta_cost * hours)
+        ((lead_number * lead_cost) + (ta_number * ta_cost)) * hours
     end
     
     def stay_cost
-        (accomodation * (lead_number + ta_number)) + (food * (lead_number + ta_number))  
+        (accomodation + food) * (lead_number + ta_number) * days
     end
     
     def trav_cost
-        (travel_cost * (ta_number + lead_number) )
+        travel_cost * (ta_number + lead_number) 
     end
     
     def cater_cost
-        (catering_cost * attendees_count)
+        (catering_cost * attendees_count )
     end
     
     def equipment_cost

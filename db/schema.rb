@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907040548) do
+ActiveRecord::Schema.define(version: 20170928052033) do
 
   create_table "efforts", force: :cascade do |t|
     t.integer  "lead_number"
@@ -35,6 +35,28 @@ ActiveRecord::Schema.define(version: 20170907040548) do
     t.integer  "days"
   end
 
+  create_table "trainer_workshops", force: :cascade do |t|
+    t.integer  "trainer_id"
+    t.integer  "workshop_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["trainer_id"], name: "index_trainer_workshops_on_trainer_id"
+    t.index ["workshop_id"], name: "index_trainer_workshops_on_workshop_id"
+  end
+
+  create_table "trainers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "category"
+    t.integer  "cost"
+    t.string   "availability"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "training_agreement"
+    t.string   "email"
+    t.string   "mobile"
+    t.string   "wwc_number"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -50,6 +72,22 @@ ActiveRecord::Schema.define(version: 20170907040548) do
     t.datetime "updated_at",                          null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "workshops", force: :cascade do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.time     "start_time"
+    t.time     "end_time"
+    t.string   "address"
+    t.string   "contact"
+    t.integer  "amount"
+    t.integer  "effort_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.float    "hours"
+    t.index ["effort_id"], name: "index_workshops_on_effort_id"
   end
 
 end

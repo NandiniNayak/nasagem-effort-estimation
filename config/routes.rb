@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :workshops
+  resources :trainers
   resources :efforts
   root 'home#page'
 

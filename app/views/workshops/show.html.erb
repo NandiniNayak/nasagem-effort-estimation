@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @workshop.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @workshop.start_date.strftime("%d %b %Y") %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @workshop.end_date.strftime("%d %b %Y") %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @workshop.start_time.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @workshop.end_time.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @workshop.address %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @workshop.contact %>
+</p>
+
+<p>
+  <strong>Total workshop cost agreed :</strong>
+  $ <%= @workshop.amount %>
+</p>
+
+<p>
+  <strong>Hours worked</strong>
+  <%= @workshop.hours %>
+</p>
+
+<p>
+  <strong>Trainers</strong>
+  <% @total_cost = 0 %>
+  <% @trainername.each do |t| %>
+    <p>
+      <%= t.category %>
+      <%= t.name %>
+    </p>
+    <p>
+      <strong> Cost $ </strong>
+        <%= t.cost %>
+      <%
+      # also calculate total cost as you go
+      @total_cost += t.cost * @workshop.hours
+      %>
+    </p>
+  <% end %>
+</p>
+
+<p>
+  <strong> Total Trainer cost for this workshop $ </strong>
+  <%= @total_cost %>
+</p>
+
+
+<%= link_to 'Edit', edit_workshop_path(@workshop) %> |
+<%= link_to 'Back', workshops_path %>

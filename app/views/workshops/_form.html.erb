@@ -1,0 +1,24 @@
+<%= simple_form_for(@workshop) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :start_time %>
+    <%= f.input :end_time %>
+    <%= f.input :hours %>
+    <%= f.input :address %>
+    <%= f.input :contact %>
+    <%= f.input :amount %>
+
+    <% @trainers.each do |t| %>
+      <%= check_box_tag("trainers[]", t.id, @workshop.trainers.include?(t)) %>
+      <label><%= t.name %></label>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit , 'Add Workshop'%>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @trainer.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @trainer.category %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @trainer.cost %>
+</p>
+
+<p>
+  <strong>Availability:</strong>
+  <%= @trainer.availability %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @trainer.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @trainer.mobile %>
+</p>
+
+<p>
+  <strong>WWC Number:</strong>
+  <%= @trainer.wwc_number %>
+</p>
+
+<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
+<%= link_to 'Back', trainers_path %>

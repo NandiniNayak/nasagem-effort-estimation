@@ -1,39 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @trainer.name %>
-</p>
+<h1> Trainer Details </h1>
+<br>
+<br>
+<div class = "jumbotron">
+  <div class = "trainer-name">
+    <%= @trainer.name %>
+  </div>
 
-<p>
-  <strong>Category:</strong>
-  <%= @trainer.category %>
-</p>
+  <p>
+    <strong>Category:</strong>
+    <%= @trainer.category %>
+  </p>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @trainer.cost %>
-</p>
+  <p>
+    <strong>Cost:</strong>
+    $ <%= @trainer.cost %> per hour
+  </p>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @trainer.availability %>
-</p>
+  <p>
+    <strong>Available:</strong>
+    <%= @trainer.availability %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @trainer.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @trainer.email %>
+  </p>
 
-<p>
-  <strong>Mobile:</strong>
-  <%= @trainer.mobile %>
-</p>
+  <p>
+    <strong>Mobile:</strong>
+    <%= @trainer.mobile %>
+  </p>
 
-<p>
-  <strong>WWC Number:</strong>
-  <%= @trainer.wwc_number %>
-</p>
+  <p>
+    <strong>WWC Number:</strong>
+    <%= @trainer.wwc_number %>
+  </p>
 
-<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
-<%= link_to 'Back', trainers_path %>
+  <p>
+    <strong>DOB:</strong>
+    <%= @trainer.dob %>
+  </p>
+
+  <%= link_to 'Edit', edit_trainer_path(@trainer), class: "btn btn-primary" %> |
+  <%= link_to 'Back', trainers_path , class: "btn btn-info" %>
+</div>

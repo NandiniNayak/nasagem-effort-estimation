@@ -9,6 +9,9 @@
     <%= f.input :email , label: "Enter email address of the trainer" %>
     <%= f.input :mobile , label: "Enter mobile number of the trainer" %>
     <%= f.input :wwc_number , label: "Enter Work With Child Check number for the trainer" %>
+
+    <%= f.input :dob, as: :date, start_year: Date.today.year - 70, end_year: Date.today.year , label: "Enter the Birth Date  of the trainer for WWC check purpose" %>
+
   </div>
 
   <div class="form-actions">

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :workshops
+  resources :workshops 
   resources :trainers
   resources :efforts
+
   root 'home#page'
 
   devise_for :users

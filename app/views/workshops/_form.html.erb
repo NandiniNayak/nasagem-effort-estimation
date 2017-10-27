@@ -10,7 +10,9 @@
     <%= f.input :hours %>
     <%= f.input :address %>
     <%= f.input :contact %>
-    <%= f.input :amount %>
+    <%= f.input :amount , label:"Enter the amount charged for this workshop" %>
+    <%= f.association :effort %>
+    
 
     <% @trainers.each do |t| %>
       <%= check_box_tag("trainers[]", t.id, @workshop.trainers.include?(t)) %>

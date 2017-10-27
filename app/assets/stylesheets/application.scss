@@ -22,11 +22,6 @@
   text-decoration: underline;
 }
 
-.navbar-default {
-    background-color: black;
-    border-color: black;
-}
-
 .navbar-default .navbar-brand {
     color: #ffff00;
     font-family: 'Source Serif Pro', serif;
@@ -41,7 +36,17 @@
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: yellow;
+    color: #38A9C7;
+    font-family: 'Source Serif Pro', serif;
+}
+.navbar-default {
+    background-color: white;
+    border-color: white;
+    height: 80px;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 h1{
     font-family: 'Source Serif Pro', serif;
@@ -67,4 +72,9 @@ h2{
 .workshop-cost{
   font-size: 2.5em;
   color: #331100;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #38A9C7;
+    font-family: 'Source Serif Pro', serif;
 }

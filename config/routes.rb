@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'account/page'
+
   resources :workshops 
   resources :trainers
   resources :efforts

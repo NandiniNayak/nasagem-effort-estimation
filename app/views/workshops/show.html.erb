@@ -38,9 +38,15 @@
   </div>
 
   <p class="workshop-cost">
-    <strong>Agreed Workshop Cost :</strong>
+    <strong>Agreed Training Cost :</strong>
     $ <%= @workshop.amount %>
   </p>
+
+  <p class="workshop-cost">
+    <strong> Initial Estimated Training Cost :</strong>
+    $ <%= @workshop.effort.total_cost %>
+  </p>
+
 
   <p>
     <strong>Hours worked</strong>
@@ -50,6 +56,8 @@
   <p>
     <strong>Trainers</strong>
     <% @total_cost = 0 %>
+
+    <!-- trainername defined in show method workshop controller -->
     <% @trainername.each do |t| %>
       <p>
         <%= t.category %>

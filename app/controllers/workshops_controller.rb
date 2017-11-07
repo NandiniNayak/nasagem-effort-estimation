@@ -22,7 +22,8 @@ class WorkshopsController < ApplicationController
   # GET /workshops/new
   def new
     @workshop = Workshop.new
-    @trainers = Trainer.all
+    @trainer = Trainer.all
+    @lead_trainers = Trainer.where(:category => "Lead Trainer")
   end
 
   # GET /workshops/1/edit
@@ -124,6 +125,6 @@ class WorkshopsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workshop_params
-      params.require(:workshop).permit(:name, :start_date, :end_date, :start_time, :end_time, :address, :contact, :amount, :effort_id, :trainers , :hours)
+      params.require(:workshop).permit(:name, :start_date, :end_date, :start_time, :end_time, :address, :contact, :amount, :effort_id, :trainers , :hours , :contact_person)
     end
 end

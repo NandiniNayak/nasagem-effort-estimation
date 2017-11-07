@@ -69,6 +69,6 @@ class EffortsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def effort_params
-      params.require(:effort).permit(:lead_number, :lead_cost, :ta_number, :ta_cost, :hours, :accomodation, :food, :travel_medium, :travel_cost, :equipment, :catering, :catering_cost, :attendees_count, :shipping_cost, :misc, :course_prep , :course_name , :days)
+      params.require(:effort).permit(:lead_number, :lead_cost, :ta_number, :ta_cost, :hours, :accomodation, :food, :travel_medium, :travel_cost, :equipment, :catering, :catering_cost, :attendees_count, :shipping_cost, :misc, :course_prep , :course_name , :days , :name)
     end
 end

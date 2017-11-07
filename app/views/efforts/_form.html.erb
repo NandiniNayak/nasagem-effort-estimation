@@ -1,50 +1,50 @@
 <%= simple_form_for(@effort) do |f| %>
   <%= f.error_notification %>
-  
+
   <div class="form-inputs">
-    <%= f.input :course_name, placeholder: "Enter the name of the course" %>
-    
+    <%= f.input :name, placeholder: "Enter the name of the course" %>
+
     <%= f.input :lead_number, placeholder: "How many lead trainers do we need",label:"Number of lead trainers" %>
-    
+
     <%= f.input :lead_cost, placeholder: "Enter lead trainers per hour cost" %>
-    
+
     <%= f.input :ta_number, placeholder: "How many TA's do we need" , label: "Number of Teaching Assistants" %>
-    
+
     <%= f.input :ta_cost, placeholder: "Enter TA's per hour cost" %>
-    
+
     <%= f.input :hours, label: "Total number of hours for the program" %>
-    
+
     <%= f.input :equipment, label: "Total cost of the equipments required incuding purchased/borrowed " , input_html: {value: f.object.equipment || 0}  %>
-    
+
     <%= f.input :shipping_cost, label: "Shipping cost if any" , input_html: {value: f.object.shipping_cost || 0}  %>
-    
+
    <%= f.input :catering, collection: ["Morning Tea","Lunch","Afternoon Tea","Dinner","Refreshments","Full day","Evening"] %>
-    
-    
+
+
     <%= f.input :catering_cost , label: "Catering cost per person", input_html: {value: f.object.catering_cost || 0}  %>
-    
+
     <%= f.input :attendees_count, label: "Number of people requiring catering", input_html: {value: f.object.attendees_count || 0}  %>
-    
+
     <%= f.input :misc, label: "Input additional cost if any" , input_html: {value: f.object.misc || 0}  %>
-    
+
     <%= f.input :course_prep , label: "Choose course complexity from the dropdown, include marketing effort and full timer's effort" , collection: ["basic", "medium","complex"] , default: "basic" %>
-    
+
     <h1> Enter cost <strong class = "effort-form">per trainer</strong> for the following fields only if travel involved</h1>
-    
+
     <%= f.input :days, label:"Total number of days from checkin - checkout" , input_html: {value: f.object.days || 0}  %>
-    
+
     <%= f.input :accomodation, label:"Approximate accomodation cost per night" , input_html: {value: f.object.accomodation || 0}  %>
-    
+
     <%= f.input :food, label: "Approximate food expense per day per trainer " , input_html: {value: f.object.food || 0} %>
-    
+
     <%= f.input :travel_medium, collection: ["Flight", "Taxi","Driving","PublicTransport","NA"] %>
     <!--optional cost to frequent travel destinations if medium is flight-->
     <!--Also how to set the default field to 0 if not applicable-->
      <!--input_html: {:value => 0 }  -> overrides the value when edited-->
      <!--input_html: {value: f.object.travel_cost || 0 }-->
      <!--retains the value when edited, but sets the initial value to 0-->
-     
-     
+
+
     <%= f.input :travel_cost, label: "Per trainer approximate travel cost, include buffer for taxi if travelling by flight", input_html: {value: f.object.travel_cost || 0}  %>
   </div>
 
@@ -52,5 +52,5 @@
   <div class="form-actions">
     <%= f.button :submit ,  "Estimate Cost" %>
   </div>
-  
+
 <% end %>

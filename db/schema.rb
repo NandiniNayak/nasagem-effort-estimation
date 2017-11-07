@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101003236) do
+ActiveRecord::Schema.define(version: 20171107030509) do
 
   create_table "efforts", force: :cascade do |t|
     t.integer  "lead_number"
@@ -58,6 +58,8 @@ ActiveRecord::Schema.define(version: 20171101003236) do
     t.string   "wwc_number"
     t.date     "dob"
     t.string   "days"
+    t.time     "start_time"
+    t.time     "end_time"
   end
 
   create_table "users", force: :cascade do |t|

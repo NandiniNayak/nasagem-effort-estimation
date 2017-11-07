@@ -4,15 +4,15 @@
   <div class="form-inputs">
     <%= f.input :name, placeholder: "Enter the name of the course" %>
 
-    <%= f.input :lead_number, placeholder: "How many lead trainers do we need",label:"Number of lead trainers" %>
+    <%= f.input :lead_number, placeholder: "How many lead trainers do we need",label:"Number of lead trainers" ,input_html: {value: f.object.lead_number || 0} %>
 
-    <%= f.input :lead_cost, placeholder: "Enter lead trainers per hour cost" %>
+    <%= f.input :lead_cost, placeholder: "Enter lead trainers per hour cost" ,input_html: {value: f.object.lead_cost || 0}%>
 
-    <%= f.input :ta_number, placeholder: "How many TA's do we need" , label: "Number of Teaching Assistants" %>
+    <%= f.input :ta_number, placeholder: "How many TA's do we need" , label: "Number of Teaching Assistants" , input_html: {value: f.object.ta_number || 0}%>
 
-    <%= f.input :ta_cost, placeholder: "Enter TA's per hour cost" %>
+    <%= f.input :ta_cost, placeholder: "Enter TA's per hour cost", input_html: {value: f.object.ta_cost || 0} %>
 
-    <%= f.input :hours, label: "Total number of hours for the program" %>
+    <%= f.input :hours, label: "Total number of hours for the program",input_html: {value: f.object.hours || 0} %>
 
     <%= f.input :equipment, label: "Total cost of the equipments required incuding purchased/borrowed " , input_html: {value: f.object.equipment || 0}  %>
 

@@ -7,19 +7,26 @@
     <%= f.input :end_date %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>
-    <%= f.input :hours , placehodler: "Total number of hours to be billed by the trainers " %>
+    <!-- total hours is automatically calculated from start and end time -->
     <%= f.input :address , placeholder: "Where is the training  happening"%>
-    <%= f.input :contact_person , placehodler: "Who is the contact person at the training location"%>
-    <%= f.input :contact %>
-    <%= f.input :amount , label:"Enter the amount charged for this training " %>
-    <%= f.association :effort %>
-
-    <% @trainers.each do |t| %>
+    <%= f.input :contact_person , placeholder: "Enter the contact person at the training location"%>
+    <%= f.input :contact , placeholder: "Enter the contact number of the training location"%>
+    <%= f.input :amount , label:"Enter the amount charged for this training " ,input_html: {value: f.object.amount || 0}%>
+    <%= f.association :effort , label: "Select the program to fetch initial cost estimated" %>
+    <h3> Lead trainers </h3>
+    <br>
+    <% @lead_trainers.each do |t| %>
+      <%= check_box_tag("trainers[]", t.id, @workshop.trainers.include?(t)) %>
+      <label><%= t.name %></label>
+    <% end %>
+    <h3> Teaching Assistants </h3>
+    <br>
+    <% @teaching_assistants.each do |t| %>
       <%= check_box_tag("trainers[]", t.id, @workshop.trainers.include?(t)) %>
       <label><%= t.name %></label>
     <% end %>
   </div>
-
+ <br>
   <div class="form-actions">
     <%= f.button :submit , 'Add Workshop'%>
   </div>

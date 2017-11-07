@@ -1,63 +1,64 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Workshops</h1>
+<h1>Trainings</h1>
 
-<table class = "table">
-  <thead>
+<table class ="table">
+  <thead class="tablehead">
     <tr>
       <th>Name</th>
       <th>Start date</th>
       <th>End date</th>
       <th>Total Course Duration </th>
-      <th> Trainer Name + Trainer Per Hour Cost + Trainers Invoice Amount </th>
+      <th> Trainer Name + Trainer Per Hour Cost + Trainer Invoice Amount </th>
       <th>Total trainers cost </th>
-      <th>Training cost quoted</th>
-      <th colspan="3"></th>
+      <th>Revenue</th>
+      <th>Academic Margin (%)</th>
+      <!-- <th colspan="3"></th> -->
     </tr>
   </thead>
-
-  <tbody>
-    <% @workshops.each do |workshop| %>
-      <tr>
-        <td><%= workshop.name %></td>
-        <td><%= workshop.start_date.strftime("%d %b %Y") %></td>
-        <td><%= workshop.end_date.strftime("%d %b %Y") %></td>
-        <td><%= workshop.hours%></td>
-        <!-- for every workshop find the trainer id's -->
-        <!-- Map through the trainers and display each trainer and their cost/hr -->
-        <!-- initialize total trainer cost to 0 -->
-        <% @total_trainer_cost = 0 %>
-        <td>
-          <% workshop.trainers.ids.map do |id| %>
-           <!-- reinitialize trainer cost to 0 for every trainer -->
-            <% @trainer_cost = 0 %>
-            <!-- reinitialize the teachers array for every trainer -->
-            <% @teachers = [] %>
-            <% @teachers << Trainer.find(id) %>
-            <% @teachers.each do |t| %>
-            <div class="tabcontent">
-                <%= t.name %>
-            </div>
-            <div class="tabcontent">
-                $<%= t.cost %>
-            </div>
-                <%
-                # also calculate total cost as you go
-                @trainer_cost += t.cost * workshop.hours
-                @total_trainer_cost += @trainer_cost
-                %>
-            <div class="tabcontent">
-                $<%= @trainer_cost%>
-            </div>
+    <tbody class="tablebody">
+      <% @workshops.each do |workshop| %>
+        <tr>
+          <td><%= workshop.name %></td>
+          <td><%= workshop.start_date.strftime("%d %b %Y") %></td>
+          <td><%= workshop.end_date.strftime("%d %b %Y") %></td>
+          <td><%= workshop.cal_hours%></td>
+          <!-- for every workshop find the trainer id's -->
+          <!-- Map through the trainers and display each trainer and their cost/hr -->
+          <!-- initialize total trainer cost to 0 -->
+          <% @total_trainer_cost = 0 %>
+          <td>
+            <% workshop.trainers.ids.map do |id| %>
+             <!-- reinitialize trainer cost to 0 for every trainer -->
+              <% @trainer_cost = 0 %>
+              <!-- reinitialize the teachers array for every trainer -->
+              <% @teachers = [] %>
+              <% @teachers << Trainer.find(id) %>
+              <% @teachers.each do |t| %>
+              <div class="tabcontent">
+                  <%= t.name %>
+              </div>
+              <div class="tabcontent">
+                  $<%= t.cost %>
+              </div>
+                  <%
+                  # also calculate total cost as you go
+                  @trainer_cost += t.cost * workshop.cal_hours
+                  @total_trainer_cost += @trainer_cost
+                  %>
+              <div class="tabcontent">
+                  $<%= @trainer_cost.round(2)%>
+              </div>
+              <% end %>
             <% end %>
-          <% end %>
-        </td>
+          </td>
 
-        <td>$<%= @total_trainer_cost%></td>
-        <td>$<%= workshop.amount %></td>
-        <!-- <td><%= link_to 'Show', workshop %></td>
-        <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
-      </tr>
-    <% end %>
-  </tbody>
+          <td>$<%= @total_trainer_cost.round(2)%></td>
+          <td>$<%= workshop.amount %></td>
+          <% @margin = (@total_trainer_cost/workshop.amount).round(2) %>
+          <td><%= @margin*100 %></td>
+
+        </tr>
+      <% end %>
+    </tbody>
 </table>

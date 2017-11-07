@@ -68,7 +68,7 @@
           <%= t.cost %>
         <%
         # also calculate total cost as you go
-        @total_cost += t.cost * @workshop.hours
+        @total_cost += t.cost * @workshop.cal_hours
         %>
       </p>
     <% end %>
@@ -76,7 +76,7 @@
 
   <p class="workshop-cost">
     <strong> Trainers total cost for the workshop $ </strong>
-    <%= @total_cost %>
+    <%= @total_cost.round(2) %>
   </p>
 
 

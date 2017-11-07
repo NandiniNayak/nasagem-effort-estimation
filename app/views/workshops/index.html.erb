@@ -30,32 +30,7 @@
         <td><%= workshop.address %></td>
         <td><%= workshop.contact %></td>
         <td>$<%= workshop.amount %></td>
-        <td><%= workshop.hours %></td>
-        <!-- <% @trainername = []  %>
-        <% workshop.trainers.ids.map do |id| %>
-          @trainername  << Trainer.find(id)
-        <% end %>
-        <td>
-          <p>
-          <% @total_cost = 0 %>
-          <% @trainername.each do |t| %>
-            <p>
-              <%= t.name %>
-            </p>
-            <p>
-              <strong> per hour Cost $ </strong>
-                <%= t.cost %>
-              <%
-              # also calculate total cost as you go
-              @total_cost += t.cost * @workshop.hours
-              %>
-            </p>
-          <% end %>
-          </p>
-            <strong> Total Trainer cost for this workshop $ </strong>
-            <%= @total_cost %>
-          </p>
-        </td> -->
+        <td><%= workshop.cal_hours %></td>
         <td><%= link_to 'Show', workshop %></td>
         <td><%= link_to 'Edit', edit_workshop_path(workshop) %></td>
         <td><%= link_to 'Destroy', workshop, method: :delete, data: { confirm: 'Are you sure?' } %></td>

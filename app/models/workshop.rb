@@ -27,4 +27,13 @@ class Workshop < ApplicationRecord
  #    cal.publish
  #  end
 
+def cal_hours
+  start_hour = start_time.strftime("%I").to_i*3600
+  start_minute = start_time.strftime("%M").to_i*60
+  total_start_time = (start_hour + start_minute)/3600
+  end_hour = end_time.strftime("%k").to_i*3600
+  end_minute = end_time.strftime("%M").to_i*60
+  total_end_time = (end_hour + end_minute)/3600.to_f
+  (total_end_time  - total_start_time).round(2)
+end
 end

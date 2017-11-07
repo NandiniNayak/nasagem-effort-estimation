@@ -22,13 +22,18 @@ class WorkshopsController < ApplicationController
   # GET /workshops/new
   def new
     @workshop = Workshop.new
-    @trainer = Trainer.all
+    @trainers = Trainer.all
+    # trainers categorized as lead and TA's to be selected when planning the workshop
     @lead_trainers = Trainer.where(:category => "Lead Trainer")
+    @teaching_assistants = Trainer.where(:category => "Teaching Assistant")
   end
 
   # GET /workshops/1/edit
   def edit
+    # trainers categorized as lead and TA's to be selected when planning the workshop
     @trainers = Trainer.all
+    @lead_trainers = Trainer.where(:category => "Lead Trainer")
+    @teaching_assistants = Trainer.where(:category => "Teaching Assistant")
   end
 
   # POST /workshops

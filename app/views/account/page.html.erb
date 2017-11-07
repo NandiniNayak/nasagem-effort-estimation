@@ -56,7 +56,7 @@
           <td>$<%= @total_trainer_cost.round(2)%></td>
           <td>$<%= workshop.amount %></td>
           <% @margin = (@total_trainer_cost/workshop.amount).round(2) %>
-          <td><%= @margin*100 %></td>
+          <td><%= (@margin*100).round(2) %></td>
 
         </tr>
       <% end %>

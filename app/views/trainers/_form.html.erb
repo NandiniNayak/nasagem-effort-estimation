@@ -6,11 +6,7 @@
     <%= f.input :category , collection: ["Lead Trainer", "Teaching Assistant"]%>
     <%= f.input :cost , label: "Enter per hour cost" %>
     <%= f.input :availability  , label: "Enter trainer's availability"%>
-    <% days = ['Mon', 'Tue', 'Wen', 'Thu', 'Fri', 'Sat', 'Sun'] %>
-    <% days.each do |day| %>
-    <%= day %>
-      <%= f.check_box :days, { multiple: true }, day, false %>
-    <% end %>
+      <%= f.input :days, as: :check_boxes , collection: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"] %>
     <%= f.input :start_time %>
     <%= f.input :end_time %>
     <%= f.input :email , label: "Enter email address of the trainer" %>
